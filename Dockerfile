@@ -32,4 +32,5 @@ RUN chmod 755 /*.sh
 WORKDIR /
 
 EXPOSE 80
+
 CMD ["/run.sh"]

@@ -1,0 +1,7 @@
+web:
+  container_name: pcpay-api
+  build: .
+  ports:
+   - "80:80"
+  volumes:
+   - /Users/justericgg/Projects/pcpay-api:/var/www/html

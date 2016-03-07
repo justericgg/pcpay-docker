@@ -4,4 +4,7 @@ web:
   ports:
    - "80:80"
   volumes:
-   - /Users/justericgg/Projects/pcpay-api:/var/www/html
+   - /Users/justericgg/Projects/pcpay-api:/var/www/html/pcpay-api
+   - /Users/justericgg/Projects/pcpay-secure:/var/www/html/pcpay-secure
+   - /Users/justericgg/Projects/pcpay-member:/var/www/html/pcpay-member
+   - /Users/justericgg/Projects/pcpay-share:/var/www/html/pcpay-share

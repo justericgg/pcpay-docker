@@ -26,7 +26,27 @@ RUN /usr/sbin/php5enmod phalcon
 
 # config to enable .htaccess
 ADD apache_default /etc/apache2/sites-available/000-default.conf
-RUN a2enmod rewrite
+ADD pcpay-api.conf /etc/apache2/sites-available/pcpay-api.conf
+ADD pcpay-secure.conf /etc/apache2/sites-available/pcpay-secure.conf
+ADD pcpay-member.conf /etc/apache2/sites-available/pcpay-member.conf
+ADD pcpay-share.conf /etc/apache2/sites-available/pcpay-share.conf
+
+RUN a2ensite pcpay-api.conf && \
+	a2ensite pcpay-secure.conf && \
+	a2ensite pcpay-member.conf && \
+	a2ensite pcpay-share.conf
+
+RUN a2enmod rewrite && \
+	a2enmod proxy && \
+	a2enmod proxy_http && \
+	a2enmod proxy_ajp && \
+	a2enmod deflate && \
+	a2enmod headers && \
+	a2enmod proxy_balancer && \
+	a2enmod proxy_connect && \
+	a2enmod proxy_html
+
+RUN echo localhost pcpay-share.pchomepay.com.tw >> /etc/hosts
 
 RUN chmod 755 /*.sh
 WORKDIR /

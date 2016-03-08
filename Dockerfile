@@ -46,8 +46,6 @@ RUN a2enmod rewrite && \
 	a2enmod proxy_connect && \
 	a2enmod proxy_html
 
-RUN echo localhost pcpay-share.pchomepay.com.tw >> /etc/hosts
-
 RUN chmod 755 /*.sh
 WORKDIR /
 

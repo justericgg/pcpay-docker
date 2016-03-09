@@ -49,7 +49,7 @@ RUN a2enmod rewrite && \
 RUN chmod 755 /*.sh
 WORKDIR /
 
-VOLUME ["/var/www/html/pcpay-api", "/var/www/html/pcpay-secure", "/var/www/html/pcpay-member", "/var/www/html/pcpay-share"]
+VOLUME ["/var/www/html/pcpay-api", "/var/www/html/pcpay-web"]
 
 EXPOSE 80
 

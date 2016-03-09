@@ -5,8 +5,6 @@ web:
    - "80:80"
   volumes:
    - /Users/justericgg/Projects/pcpay-api:/var/www/html/pcpay-api
-   - /Users/justericgg/Projects/pcpay-web/secure:/var/www/html/pcpay-secure
-   - /Users/justericgg/Projects/pcpay-web/member:/var/www/html/pcpay-member
-   - /Users/justericgg/Projects/pcpay-web/share:/var/www/html/pcpay-share
+   - /Users/justericgg/Projects/pcpay-web:/var/www/html/pcpay-web
   extra_hosts:
    - "pcpay-share.pchomepay.com.tw:127.0.0.1"

@@ -35,8 +35,3 @@
 	SetEnvIf x-forwarded-proto https HTTPS=on
 
 </VirtualHost>
-
-<LocationMatch /share>
-        ProxyPass  http://pcpay-share.pchomepay.com.tw/
-        ProxyPassReverse http://pcpay-share.pchomepay.com.tw/
-</LocationMatch>

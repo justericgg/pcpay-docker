@@ -46,7 +46,8 @@ RUN a2enmod rewrite && \
 	a2enmod proxy_connect && \
 	a2enmod proxy_html
 
-RUN chmod 755 /*.sh
+RUN echo "127.0.0.1 pcpay-share.pchomepay.com.tw" >> /etc/hosts && chmod 755 /*.sh
+
 WORKDIR /
 
 VOLUME ["/var/www/html/pcpay-api", "/var/www/html/pcpay-web", "/var/log/apache2"]

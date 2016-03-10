@@ -1,0 +1,10 @@
+web:
+  image: pcpay/pcpay-docker
+  container_name: pcpay-api 
+  ports:
+   - "80:80"
+  volumes:
+   - /Users/justericgg/Projects/pcpay-api:/var/www/html/pcpay-api
+   - /Users/justericgg/Projects/pcpay-web:/var/www/html/pcpay-web
+   extra_hosts:
+   - "pcpay-share.pchomepay.com.tw:127.0.0.1"

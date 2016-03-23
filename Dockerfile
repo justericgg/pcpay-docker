@@ -27,11 +27,13 @@ RUN /usr/sbin/php5enmod phalcon
 # config to enable .htaccess
 ADD apache_default /etc/apache2/sites-available/000-default.conf
 ADD pcpay-api.conf /etc/apache2/sites-available/pcpay-api.conf
+ADD pcpay-prvtapi.conf /etc/apache2/sites-available/pcpay-prvtapi.conf
 ADD pcpay-secure.conf /etc/apache2/sites-available/pcpay-secure.conf
 ADD pcpay-member.conf /etc/apache2/sites-available/pcpay-member.conf
 ADD pcpay-share.conf /etc/apache2/sites-available/pcpay-share.conf
 
 RUN a2ensite pcpay-api.conf && \
+	a2ensite pcpay-prvtapi.conf && \
 	a2ensite pcpay-secure.conf && \
 	a2ensite pcpay-member.conf && \
 	a2ensite pcpay-share.conf
@@ -50,7 +52,7 @@ RUN echo "127.0.0.1 pcpay-share.pchomepay.com.tw" >> /etc/hosts && chmod 755 /*.
 
 WORKDIR /
 
-VOLUME ["/var/www/html/pcpay-api", "/var/www/html/pcpay-web", "/var/log/apache2"]
+VOLUME ["/var/www/html/pcpay-api", "/var/www/html/pcpay-prvtapi", "/var/www/html/pcpay-web", "/var/log/apache2"]
 
 EXPOSE 80
 

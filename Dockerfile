@@ -9,9 +9,6 @@ RUN apt-get update && \
 
 RUN /bin/echo 'extension=curl.so' > /etc/php5/mods-available/curl.ini
 
-ADD cert.pem /etc/apache2/ssl/cert.pem
-ADD key.pem /etc/apache2/ssl/key.pem
-
 # Add image configuration and scripts
 ADD start-apache2.sh /start-apache2.sh
 ADD run.sh /run.sh

@@ -4,7 +4,7 @@ MAINTAINER Eric G. Huang <eric.g.yuan@gmail.com>
 
 # Install packages
 RUN apt-get update && \
-	apt-get -y install supervisor git apache2 libapache2-mod-php5 mysql-server php5-mysql pwgen php-apc php5-mcrypt php5-xdebug php5-dev libpcre3-dev gcc make && \
+	apt-get -y install supervisor git apache2 libapache2-mod-php5 mysql-server php5-mysql pwgen php-apc php5-mcrypt php5-xdebug php5-curl php5-dev libpcre3-dev gcc make && \
   	echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # Add image configuration and scripts

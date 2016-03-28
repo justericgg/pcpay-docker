@@ -1,0 +1,4 @@
+docker run -it \
+--add-host pcpay-share.pchomepay.com.tw:127.0.0.1 \
+--add-host pcpay-share.pchomepay.com.tw:127.0.0.1 \
+--name pcpay-docker -p 80:80 -d pcpay/pcpay-docker

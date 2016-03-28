@@ -4,8 +4,13 @@ MAINTAINER Eric G. Huang <eric.g.yuan@gmail.com>
 
 # Install packages
 RUN apt-get update && \
-	apt-get -y install supervisor git apache2 libapache2-mod-php5 mysql-server php5-mysql pwgen php-apc php5-mcrypt php5-xdebug php5-curl php5-dev libpcre3-dev gcc make && \
+	apt-get -y install supervisor git apache2 libapache2-mod-php5 mysql-server php5-mysql pwgen php-apc php5-mcrypt php5-xdebug php5-curl php5-dev libpcre3-dev gcc make openssl && \
   	echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+RUN /bin/echo 'extension=curl.so' > /etc/php5/mods-available/curl.ini
+
+ADD cert.pem /etc/apache2/ssl/cert.pem
+ADD key.pem /etc/apache2/ssl/key.pem
 
 # Add image configuration and scripts
 ADD start-apache2.sh /start-apache2.sh
@@ -21,7 +26,7 @@ RUN /usr/bin/git clone https://github.com/phalcon/cphalcon.git && \
     cd /tmp && \
     /bin/rm -rf /tmp/cphalcon/
 
-RUN /bin/echo 'extension=phalcon.so' >/etc/php5/mods-available/phalcon.ini
+RUN /bin/echo 'extension=phalcon.so' > /etc/php5/mods-available/phalcon.ini
 RUN /usr/sbin/php5enmod phalcon
 
 # config to enable .htaccess
@@ -46,7 +51,8 @@ RUN a2enmod rewrite && \
 	a2enmod headers && \
 	a2enmod proxy_balancer && \
 	a2enmod proxy_connect && \
-	a2enmod proxy_html
+	a2enmod proxy_html && \
+	a2enmod ssl
 
 RUN echo "127.0.0.1 pcpay-share.pchomepay.com.tw" >> /etc/hosts && chmod 755 /*.sh
 
@@ -54,6 +60,6 @@ WORKDIR /
 
 VOLUME ["/var/www/html/pcpay-api", "/var/www/html/pcpay-prvtapi", "/var/www/html/pcpay-web", "/var/log/apache2"]
 
-EXPOSE 80
+EXPOSE 80 443
 
 CMD ["/run.sh"]

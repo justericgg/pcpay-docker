@@ -8,6 +8,7 @@ RUN apt-get update && \
   	echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 RUN /bin/echo 'extension=curl.so' > /etc/php5/mods-available/curl.ini
+RUN /usr/sbin/php5enmod mcrypt
 
 # Add image configuration and scripts
 ADD start-apache2.sh /start-apache2.sh

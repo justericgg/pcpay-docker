@@ -34,6 +34,7 @@ ADD pcpay-prvtapi.conf /etc/apache2/sites-available/pcpay-prvtapi.conf
 ADD pcpay-secure.conf /etc/apache2/sites-available/pcpay-secure.conf
 ADD pcpay-member.conf /etc/apache2/sites-available/pcpay-member.conf
 ADD pcpay-share.conf /etc/apache2/sites-available/pcpay-share.conf
+ADD pcpay-test.conf /etc/apache2/sites-available/pcpay-test.conf
 
 RUN a2ensite pcpay-api.conf && \
 	a2ensite pcpay-prvtapi.conf && \
@@ -52,11 +53,9 @@ RUN a2enmod rewrite && \
 	a2enmod proxy_html && \
 	a2enmod ssl
 
-RUN echo "127.0.0.1 pcpay-share.pchomepay.com.tw" >> /etc/hosts && chmod 755 /*.sh
-
 WORKDIR /
 
-VOLUME ["/var/www/html/pcpay-api", "/var/www/html/pcpay-prvtapi", "/var/www/html/pcpay-web", "/var/log/apache2"]
+VOLUME ["/var/www/html/pcpay-api", "/var/www/html/pcpay-prvtapi", "/var/www/html/pcpay-web", "/var/www/html/pcpay-test", "/var/log/apache2"]
 
 EXPOSE 80 443
 

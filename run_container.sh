@@ -4,11 +4,11 @@ docker run -it \
 --add-host prvtapi.pchomepay.com.tw:127.0.0.1 \
 --add-host pcpay-test.pchomepay.com.tw:127.0.0.1 \
 --add-host mysql.pchomepay.com.tw:10.113.11.217 \
--v /<workspace>/pcpay-api:/var/www/html/pcpay-api \
--v /<workspace>/pcpay-prvtapi:/var/www/html/pcpay-prvtapi \
--v /<workspace>/pcpay-web:/var/www/html/pcpay-web \
--v /<workspace>/pcpay-test:/var/www/html/pcpay-test \
--v /<logpath>/apache:/var/log/apache2 \
---name pcpay-docker -p 80:80 -p 443:443 -d pcpay/pcpay-docker
+-v ~/Projects/pcpay-api:/var/www/html/pcpay-api \
+-v ~/Projects/pcpay-prvtapi:/var/www/html/pcpay-prvtapi \
+-v ~/Projects/pcpay-web:/var/www/html/pcpay-web \
+-v ~/Projects/pcpay-test:/var/www/html/pcpay-test \
+-v ~/log/pcpay-docker/apache2:/var/log/apache2 \
+--name pcpay-docker -p 80:80 -d pcpay/pcpay-docker
 
 

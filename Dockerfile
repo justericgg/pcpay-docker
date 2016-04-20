@@ -40,7 +40,8 @@ RUN a2ensite pcpay-api.conf && \
 	a2ensite pcpay-prvtapi.conf && \
 	a2ensite pcpay-secure.conf && \
 	a2ensite pcpay-member.conf && \
-	a2ensite pcpay-share.conf
+	a2ensite pcpay-share.conf && \
+	a2ensite pcpay-test.conf
 
 RUN a2enmod rewrite && \
 	a2enmod proxy && \

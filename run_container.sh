@@ -8,6 +8,7 @@ docker run -it \
 -v /<workspace>/pcpay-prvtapi:/var/www/html/pcpay-prvtapi \
 -v /<workspace>/pcpay-web:/var/www/html/pcpay-web \
 -v /<workspace>/pcpay-test:/var/www/html/pcpay-test \
+-v /<logpath>/apache:/var/log/apache2 \
 --name pcpay-docker -p 80:80 -p 443:443 -d pcpay/pcpay-docker
 
 

@@ -10,6 +10,9 @@ RUN apt-get update && \
 RUN /bin/echo 'extension=curl.so' > /etc/php5/mods-available/curl.ini
 RUN /usr/sbin/php5enmod mcrypt
 
+ADD xdebug.ini /etc/php5/mods-available
+RUN /usr/sbin/php5enmod xdebug
+
 # Add image configuration and scripts
 ADD start-apache2.sh /start-apache2.sh
 ADD run.sh /run.sh
@@ -58,6 +61,6 @@ WORKDIR /
 
 VOLUME ["/var/www/html/pcpay-api", "/var/www/html/pcpay-prvtapi", "/var/www/html/pcpay-web", "/var/www/html/pcpay-test", "/var/log/apache2"]
 
-EXPOSE 80 443
+EXPOSE 80 443 9000
 
 CMD ["/run.sh"]

@@ -1,3 +1,5 @@
+# Starting this container by using the script below
+--
 docker run -it \
 --add-host api.pchomepay.com.tw:127.0.0.1 \
 --add-host pcpay-share.pchomepay.com.tw:127.0.0.1 \
@@ -10,3 +12,19 @@ docker run -it \
 -v ~/Projects/pcpay-test:/var/www/html/pcpay-test \
 -v ~/log/pcpay-docker/apache2:/var/log/apache2 \
 --name pcpay-docker -p 80:80 -p 9000:9000 -d pcpay/pcpay-docker
+
+
+
+# Debug step by step with XDebug with PhpStorm (cool)
+--
+* Run -> Edit configurations...
+* Add -> PHP Remote Debug
+* Add a Servers in Configuration section
+* Filling "PHPSTORM" into Setting ide key(session id) column
+* Setting host, port
+* Setting Debugger to Xdebug
+* Setting Absolute path on the server mapping to your project
+* Add ?XDEBUG_SESSION_START=PHPSTORM after the url
+
+
+

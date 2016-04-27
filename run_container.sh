@@ -9,4 +9,4 @@ docker run -it \
 -v ~/Projects/pcpay-web:/var/www/html/pcpay-web \
 -v ~/Projects/pcpay-test:/var/www/html/pcpay-test \
 -v ~/log/pcpay-docker/apache2:/var/log/apache2 \
---name pcpay-docker -p 80:80 -p 9000:9000 -d pcpay/pcpay-docker
+--name pcpay-docker -p 80:80 -p 443:443 -p 9000:9000 -d pcpay/pcpay-docker

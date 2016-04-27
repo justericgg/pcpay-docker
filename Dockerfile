@@ -49,6 +49,7 @@ RUN a2ensite pcpay-api.conf && \
 RUN a2enmod rewrite && \
 	a2enmod proxy && \
 	a2enmod proxy_http && \
+	a2enmod xml2enc && \
 	a2enmod proxy_ajp && \
 	a2enmod deflate && \
 	a2enmod headers && \

@@ -4,8 +4,13 @@ MAINTAINER Eric G. Huang <eric.g.yuan@gmail.com>
 
 # Install packages
 RUN apt-get update && \
-	apt-get -y install supervisor git apache2 libapache2-mod-php5 mysql-server php5-mysql pwgen php-apc php5-mcrypt php5-xdebug php5-curl php5-dev libpcre3-dev gcc make openssl && \
+	apt-get -y install supervisor git apache2 libapache2-mod-php5 mysql-server php5-mysql pwgen php-apc php5-mcrypt php5-xdebug php5-curl php5-dev libpcre3-dev php-pear gcc make openssl libgearman-dev && \
   	echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+# install GearMan
+RUN pecl install gearman
+RUN /bin/echo 'extension=gearman.so' > /etc/php5/mods-available/gearman.ini
+RUN /usr/sbin/php5enmod gearman
 
 RUN /bin/echo 'extension=curl.so' > /etc/php5/mods-available/curl.ini
 RUN /usr/sbin/php5enmod mcrypt

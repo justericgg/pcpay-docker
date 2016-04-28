@@ -4,6 +4,7 @@ docker run -it \
 --add-host prvtapi.pchomepay.com.tw:127.0.0.1 \
 --add-host pcpay-test.pchomepay.com.tw:127.0.0.1 \
 --add-host mysql.pchomepay.com.tw:10.113.11.217 \
+--add-host mcache.pchomepay.com.tw:10.113.11.217 \
 -v ~/Projects/pcpay-api:/var/www/html/pcpay-api \
 -v ~/Projects/pcpay-prvtapi:/var/www/html/pcpay-prvtapi \
 -v ~/Projects/pcpay-web:/var/www/html/pcpay-web \

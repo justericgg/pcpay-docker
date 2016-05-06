@@ -8,11 +8,9 @@ docker run -it \
 --add-host mysql.pchomepay.com.tw:10.113.11.217 \
 --add-host mcache.pchomepay.com.tw:10.113.11.217 \
 --add-host gearman.pchomepay.com.tw:10.113.11.217 \
--v ~/Projects/pcpay-api:/var/www/html/pcpay-api \
--v ~/Projects/pcpay-prvtapi:/var/www/html/pcpay-prvtapi \
--v ~/Projects/pcpay-web:/var/www/html/pcpay-web \
--v ~/Projects/pcpay-test:/var/www/html/pcpay-test \
--v ~/log/pcpay-docker/apache2:/var/log/apache2 \
+-v /c/Users/jamesyu/workspace/pcpay-api:/var/www/html/pcpay-api \
+-v /c/Users/jamesyu/workspace/pcpay-prvtapi:/var/www/html/pcpay-prvtapi \
+-v /c/Users/jamesyu/workspace/pcpay-web:/var/www/html/pcpay-web \
+-v /c/Users/jamesyu/workspace/pcpay-test:/var/www/html/pcpay-test \
+-v /c/Users/jamesyu/workspace/log:/var/log/apache2 \
 --name pcpay-docker -p 80:80 -p 443:443 -p 9000:9000 -d pcpay/pcpay-docker
-
-

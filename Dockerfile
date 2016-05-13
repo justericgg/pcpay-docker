@@ -3,8 +3,10 @@ FROM ubuntu:trusty
 MAINTAINER Eric G. Huang <eric.g.yuan@gmail.com>
 
 # Install packages
-RUN add-apt-repository ppa:ondrej/php5-5.6
-RUN apt-get update && apt-get install python-software-properties
+RUN apt-get install software-properties-common python-software-properties
+RUN apt-get install -y language-pack-en-base
+RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php5-5.6 -y
+
 RUN apt-get update && \
 	apt-get -y install supervisor git apache2 php5 libapache2-mod-php5 mysql-server php5-mysql pwgen php-apc php5-mcrypt php5-xdebug php5-curl php5-dev libpcre3-dev php-pear gcc make openssl libgearman-dev && \
 echo "ServerName localhost" >> /etc/apache2/apache2.conf

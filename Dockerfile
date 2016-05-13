@@ -3,7 +3,7 @@ FROM ubuntu:trusty
 MAINTAINER Eric G. Huang <eric.g.yuan@gmail.com>
 
 # Install packages
-RUN apt-get install software-properties-common python-software-properties
+RUN apt-get install -y software-properties-common python-software-properties
 RUN apt-get install -y language-pack-en-base
 RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php5-5.6 -y
 

@@ -6,7 +6,7 @@ docker run -it \
 --add-host pcpay-member.pchomepay.com.tw:127.0.0.1 \
 --add-host pcpay-test.pchomepay.com.tw:127.0.0.1 \
 --add-host mysql.pchomepay.com.tw:10.113.11.217 \
---add-host mcache.pchomepay.com.tw:10.113.11.217 \
+--add-host mcache.pchomepay.com.tw:10.113.22.190 \
 --add-host gearman.pchomepay.com.tw:10.113.11.217 \
 --add-host pgmail.pchomepay.com.tw:10.113.11.221 \
 -v ~/Projects/pcpay-api:/var/www/html/pcpay-api \
